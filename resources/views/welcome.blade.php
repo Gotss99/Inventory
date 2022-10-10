@@ -117,7 +117,7 @@
                             </svg>
 
                             <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor New
+                                Sponsor New Year
                             </a>
                         </div>
                     </div>

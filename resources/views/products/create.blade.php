@@ -2,8 +2,10 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12">
-            <h2>Create Product</h2>
+        <div class="col-lg-7">
+            <div class="alert alert-secondary">
+                <h2>Create Product</h2>
+            </div>
         </div>
         <div class="col-md-12 my-3">
             <a href="{{ route('products.index') }}" class="btn btn-danger">Back</a>

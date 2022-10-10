@@ -3,7 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1>Products</h1>
+            <div class="alert alert-primary">
+                <h1>Products</h1>
+            </div>
         </div>
         <div class="col-md-12 my-3">
             <a href="{{ route('products.create') }}" class="btn btn-success">Add product</a>

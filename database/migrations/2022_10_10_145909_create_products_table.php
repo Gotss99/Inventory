@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price', 9, 3);
             $table->integer('amount');
-            $table->text('detail');
+            $table->text('detail')->nullable();
             $table->timestamps();
         });
     }

@@ -61,7 +61,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show',compact('product'));
+    }
+
+    public function edit (Product $product) {
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -73,7 +77,24 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validateProduct = Validator::make($request->all(), [
+            'name' => 'required|max:50',
+            'price' => 'required|numeric',
+            'amount' => 'required|numeric',
+            'detail' => 'nullable|max:255'
+        ]);
+
+        if ($validateProduct->fails()) {
+            return redirect()->route('products.create')->with('error', $validateProduct->errors());
+        }
+
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->amount = $request->amount;
+        $product->detail = $request->detail;
+        $product->save();
+
+        return redirect()->route('products.index')->with('success', 'Product has been updated successfully!');
     }
 
     /**
@@ -84,6 +105,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully!');
     }
 }
